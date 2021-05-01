@@ -92,6 +92,7 @@ class Form extends Component {
                         </div>
                      )}
                 </div>
+                <div><p>Collaborators in alphabetical order: Yan Chen, Benjamin Li, Yujia Zhang</p></div>
             </div>
         );
     }
