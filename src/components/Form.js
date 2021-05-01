@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 class Form extends Component {
+
+    // For state of API result display
+    state = {
+        result: false,
+        scores: null
+    };
+
     constructor(props) {
         super(props)
 
@@ -9,9 +16,8 @@ class Form extends Component {
             molecular_weight: '',
             hydrogen_bond_donor_count: '',
             hydrogen_bond_acceptor_count: '',
-            typological_polar_surface_area: '',
+            topological_polar_surface_area: '',
             heavy_atom_count: '',
-            formal_charge: '',
             complexity: '',
             melting_point: '',
             solubility: '',
@@ -29,6 +35,7 @@ class Form extends Component {
         axios.post('https://drugmlapi-env.eba-f7kpi2dc.us-east-1.elasticbeanstalk.com/api/drug/', this.state)
             .then(response => {
                 console.log(response)
+                this.setState({scores: response.data.message, result: true})
             })
             .catch(error => {
                 console.log(error)
@@ -36,7 +43,7 @@ class Form extends Component {
     }
 
     render() {
-        const { molecular_weight, hydrogen_bond_donor_count, hydrogen_bond_acceptor_count, typological_polar_surface_area, heavy_atom_count, formal_charge, complexity, melting_point, solubility, logp } = this.state
+        const { molecular_weight, hydrogen_bond_donor_count, hydrogen_bond_acceptor_count, topological_polar_surface_area, heavy_atom_count, complexity, melting_point, solubility, logp } = this.state
         return (
             <div className="form-part">
                 <form onSubmit={this.submitHandler}>
@@ -51,13 +58,10 @@ class Form extends Component {
                             <label>Hydrogen Bond Acceptor Count <input type="text" className="hydrogen_bond_acceptor_count" value={hydrogen_bond_acceptor_count} onChange={this.changeHandler}></input></label>
                         </p>
                         <p>
-                            <label>Topological Polar Surface Area <input type="text" className="typological_polar_surface_area" value={typological_polar_surface_area} onChange={this.changeHandler}></input></label>
+                            <label>Topological Polar Surface Area <input type="text" className="topological_polar_surface_area" value={topological_polar_surface_area} onChange={this.changeHandler}></input></label>
                         </p>
                         <p>
                             <label>Heavy Atom Count <input type="text" className="heavy_atom_count" value={heavy_atom_count} onChange={this.changeHandler}></input></label>
-                        </p>
-                        <p>
-                            <label>Formal Charge <input type="text" className="formal_charge" value={formal_charge} onChange={this.changeHandler}></input></label>
                         </p>
                         <p>
                             <label>Complexity <input type="text" className="complexity" value={complexity} onChange={this.changeHandler}></input></label>
@@ -76,6 +80,18 @@ class Form extends Component {
                         </button>
                     </div>
                 </form>
+                <div>
+                    {!this.state.result || !this.state.scores ? (
+                    <div> Press "+" for result. </div>
+                     ) : (
+                         <div>
+                            <div>Result: </div>
+                            <div><p>prediction_diabetes:</p>{this.state.scores.prediction_diabetes}</div>
+                            <div><p>prediction_hypertension:</p>{this.state.scores.prediction_hypertension}</div>
+                            <div><p>prediction_pain:</p>{this.state.scores.prediction_pain}</div>
+                        </div>
+                     )}
+                </div>
             </div>
         );
     }
