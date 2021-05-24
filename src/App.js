@@ -1,16 +1,21 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, VStack } from '@chakra-ui/react';
 
 import './App.css';
+
 // importing components
-import Form from './components/Form';
+import Header from './components/Header/Header';
+import Tagline from './components/Tagline/Tagline';
+import Input from './components/UI/Input/Input';
 
 function App() {
 	return (
-		<div className="App">
-			<ChakraProvider>
-				<h2>Drug ML</h2>
-			</ChakraProvider>
-		</div>
+		<ChakraProvider>
+			<VStack align="center" spacing={10}>
+				<Header />
+				<Tagline />
+				<Input />
+			</VStack>
+		</ChakraProvider>
 	);
 }
 
