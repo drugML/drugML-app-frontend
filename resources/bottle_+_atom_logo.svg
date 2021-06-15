@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#E53A35;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:2.5;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#E53A35;stroke-width:4;stroke-miterlimit:10;}
+	.st4{fill:#E53A35;stroke:#E53A35;stroke-width:2;stroke-miterlimit:10;}
+</style>
+<path class="st0" d="M185.75,200H14.25C6.38,200,0,193.62,0,185.75V14.25C0,6.38,6.38,0,14.25,0h171.51C193.62,0,200,6.38,200,14.25
+	v171.51C200,193.62,193.62,200,185.75,200z"/>
+<path class="st1" d="M127.98,185.45H78.17c-6.92,0-12.54-5.61-12.54-12.54V88.03h74.88v84.88
+	C140.52,179.84,134.91,185.45,127.98,185.45z"/>
+<path class="st1" d="M139.37,74.59L90.73,25.94c-3.17-3.17-3.17-8.31,0-11.48l0,0c3.17-3.17,8.31-3.17,11.48,0l48.65,48.65
+	c3.17,3.17,3.17,8.31,0,11.48l0,0C147.68,77.76,142.54,77.76,139.37,74.59z"/>
+<g>
+	<circle class="st1" cx="79.18" cy="58.07" r="4.69"/>
+	
+		<ellipse transform="matrix(0.5159 -0.8567 0.8567 0.5159 -11.3484 96.0513)" class="st2" cx="79.31" cy="58.07" rx="8.58" ry="22.7"/>
+	<ellipse class="st2" cx="79.18" cy="57.55" rx="8.58" ry="22.7"/>
+	
+		<ellipse transform="matrix(0.833 -0.5533 0.5533 0.833 -18.9036 53.5021)" class="st2" cx="79.18" cy="58.07" rx="22.7" ry="8.58"/>
+</g>
+<path class="st3" d="M142.73,159.72H98.85c-7.71,0-13.96-6.25-13.96-13.96v-29.34c0-7.71,6.25-13.96,13.96-13.96h43.87
+	c7.71,0,13.96,6.25,13.96,13.96v29.34C156.69,153.47,150.44,159.72,142.73,159.72z"/>
+<path class="st4" d="M128.96,127.97h-27.19c-0.77,0-1.39,0.62-1.39,1.39l0,0c0,0.77,0.62,1.39,1.39,1.39h27.19
+	c0.77,0,1.39-0.62,1.39-1.39l0,0C130.35,128.59,129.73,127.97,128.96,127.97z"/>
+<path class="st4" d="M113.98,115.76v27.19c0,0.77,0.62,1.39,1.39,1.39l0,0c0.77,0,1.39-0.62,1.39-1.39v-27.19
+	c0-0.77-0.62-1.39-1.39-1.39l0,0C114.6,114.37,113.98,114.99,113.98,115.76z"/>
+</svg>
