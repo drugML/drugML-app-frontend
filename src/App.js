@@ -6,6 +6,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Tagline from './components/Tagline/Tagline';
 import Input from './components/UI/Input/Input';
+import Result from './components/Result/Result';
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 				<Header />
 				<Tagline />
 				<Input />
+				<Result />
 			</VStack>
 		</ChakraProvider>
 	);

@@ -2,6 +2,8 @@ import Input from './Input/Input';
 
 import { Fragment } from 'react';
 
+import classes from './AdvancedInput.module.css';
+
 const inputs = [
 	{
 		label: 'Molecular Weight',
@@ -43,7 +45,7 @@ const inputs = [
 ];
 
 const AdvancedInput = (props) => (
-	<Fragment>
+	<Fragment className={classes['input-div']}>
 		{inputs.map((input) => (
 			<Input
 				label={input.label}

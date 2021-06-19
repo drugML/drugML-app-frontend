@@ -5,7 +5,7 @@ import classes from './Header.module.css';
 
 const Header = () => (
 	<VStack spacing={4} className={classes.header}>
-		<Center>Drug Predictor</Center>
+		<Center>Drug ML</Center>
 		<Center>
 			<Divider />
 		</Center>
