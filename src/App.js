@@ -15,7 +15,7 @@ function App() {
 				<Header />
 				<Tagline />
 				<Input />
-				<Result />
+				{/* <Result /> */}
 			</VStack>
 		</ChakraProvider>
 	);
