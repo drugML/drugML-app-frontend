@@ -4,6 +4,8 @@ import { Component } from 'react';
 
 import classes from './Result.module.css';
 
+import result_icon from '../../resources/result_icon.png';
+
 // const Result = (props) => (
 // 	<Container className={classes['result-div']}>
 // 		<Flex className={classes.label}>
@@ -42,7 +44,12 @@ class Result extends Component {
                     <p>Predictions</p>
                     <Spacer />
                 </Flex>
-                <input type="text" className={classes.result} placeholder={this.state.prediction_hypertension} />
+                <div className={classes.result}>
+                <img src={result_icon} className={classes.icon} alt="icon"></img>
+                {"Hypertension"}
+                {this.state.prediction_hypertension}
+                </div>
+                {/* <input type="text" className={classes.result} placeholder={this.state.prediction_hypertension} /> */}
             </Container>
         );
     }

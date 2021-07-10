@@ -9,6 +9,11 @@
 	padding: 15px;
 	text-align: center;
 	font-size: 150%;
+	display: flex;
+}
+
+.icon {
+	padding-right: 50px;
 }
 
 .result:focus {

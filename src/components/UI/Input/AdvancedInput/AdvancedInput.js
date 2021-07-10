@@ -10,17 +10,12 @@ import axios from 'axios'
 
 class AdvancedInput extends Component {
 
-    // For state of API result display
-    
-
-    
-
     constructor(props) {
         super(props)
 
         this.state = {
             result: false,
-            scores: "hi"
+            scores: "none"
         };
 
         this.params = {
@@ -40,13 +35,19 @@ class AdvancedInput extends Component {
             prediction_hypertenstion: '',
             prediction_pain: '',
         }
+    }
 
-        
+    // scores returned from API are decimals, format to rounded percentages
+    formatScores() {
+        var scores_copy = this.state.scores;
+        Object.keys(scores_copy).forEach(e => {
+            scores_copy[e] = (Number(scores_copy[e]) * 100).toFixed(2).toString() + '%';
+        })
+        this.setState({scores: scores_copy});
     }
 
     changeHandler = e => {
         this.params[e.target.name] = e.target.value
-        // this.setState({[e.target.name]: e.target.value});
     }
 
     submitHandler = e => {
@@ -56,6 +57,7 @@ class AdvancedInput extends Component {
             .then(response => {
                 console.log(response)
                 this.setState({scores: response.data.message, result: true})
+                this.formatScores();
                 console.log(this.state.scores);
                 console.log(this.state.result);
             })
@@ -125,7 +127,6 @@ class AdvancedInput extends Component {
         ];
 
         return (
-            // <Fragment className={classes['input-div']}>
             <Fragment>
                 <form onSubmit={this.submitHandler}>
                     {inputs.map((input) => (
@@ -135,7 +136,7 @@ class AdvancedInput extends Component {
                             value={input.value}
                             placeholder={input.placeholder}
                             isFirst={input.isFirst}
-                            // onAdvancedInput={props.onAdvancedInput}
+                            onAdvancedInput={this.props.onAdvancedInput}
                             onChange={this.changeHandler}
                         />
                     ))}
