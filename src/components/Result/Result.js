@@ -6,21 +6,6 @@ import classes from './Result.module.css';
 
 import result_icon from '../../resources/result_icon.png';
 
-// const Result = (props) => (
-// 	<Container className={classes['result-div']}>
-// 		<Flex className={classes.label}>
-// 			<p>Predictions</p>
-// 			<Spacer />
-// 		</Flex>
-// 		<input type="text" className={classes.result} placeholder="Prediction" />
-// 	</Container>
-// );
-
-// export default Result;
-
-
-
-
 class Result extends Component {
 
     // For state of API result display
@@ -28,13 +13,24 @@ class Result extends Component {
         super(props)
 
         this.state = {
-            prediction_hypertension: 'none',
+            prediction_one_name: 'none',
+            prediction_one_value: 'none',
+            prediction_two_name: 'none',
+            prediction_two_value: 'none',
+            prediction_three_name: 'none',
+            prediction_three_value: 'none',
         };
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log("Result");
         console.log(nextProps);
-        this.setState({ prediction_hypertension: nextProps.scores.prediction_hypertension });
+        this.setState({ prediction_one_name: Object.keys(nextProps.scores)[0].split("_")[1] });
+        this.setState({ prediction_one_value: Object.values(nextProps.scores)[0] });
+        this.setState({ prediction_two_name: Object.keys(nextProps.scores)[1].split("_")[1] });
+        this.setState({ prediction_two_value: Object.values(nextProps.scores)[1] });
+        this.setState({ prediction_three_name: Object.keys(nextProps.scores)[2].split("_")[1] });
+        this.setState({ prediction_three_value: Object.values(nextProps.scores)[2] });
     }
 
     render() {
@@ -46,11 +42,19 @@ class Result extends Component {
                 </Flex>
                 <div className={classes.result}>
                 <img src={result_icon} className={classes.icon} alt="icon"></img>
-                {"Hypertension"}
-                {this.state.prediction_hypertension}
+                {this.state.prediction_one_name}{" "}{this.state.prediction_one_value}
                 </div>
                 {/* <input type="text" className={classes.result} placeholder={this.state.prediction_hypertension} /> */}
-            </Container>
+                <div className={classes.result}>
+                <img src={result_icon} className={classes.icon} alt="icon"></img>
+                {this.state.prediction_two_name}{" "}{this.state.prediction_two_value}
+                </div>
+                <div className={classes.result}>
+                <img src={result_icon} className={classes.icon} alt="icon"></img>
+                {this.state.prediction_three_name}{" "}{this.state.prediction_three_value}
+                </div>
+           </Container>
+            
         );
     }
 }

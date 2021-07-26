@@ -18,6 +18,15 @@ class AdvancedInput extends Component {
             scores: "none"
         };
 
+        this.score_packet = {
+            prediction_one_name: '',
+            prediction_one_value: '',
+            prediction_two_name: '',
+            prediction_two_value: '',
+            prediction_three_name: '',
+            prediction_three_value: '',
+        }
+
         this.params = {
             molecular_weight: '',
             hydrogen_bond_donor_count: '',
