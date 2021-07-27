@@ -16,15 +16,6 @@ class AdvancedInput extends Component {
         this.state = {
             result: false,
             scores: "none"
-        };
-
-        this.score_packet = {
-            prediction_one_name: '',
-            prediction_one_value: '',
-            prediction_two_name: '',
-            prediction_two_value: '',
-            prediction_three_name: '',
-            prediction_three_value: '',
         }
 
         this.params = {
@@ -46,13 +37,32 @@ class AdvancedInput extends Component {
         }
     }
 
+    sortObjectByKeys(o) {
+        return Object.values(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
+    }
+
     // scores returned from API are decimals, format to rounded percentages
     formatScores() {
         var scores_copy = this.state.scores;
         Object.keys(scores_copy).forEach(e => {
             scores_copy[e] = (Number(scores_copy[e]) * 100).toFixed(2).toString() + '%';
         })
-        this.setState({scores: scores_copy});
+        
+        var sorted_scores = []
+
+        for (var key in scores_copy) {
+            sorted_scores.push([ key, scores_copy[key] ])
+        }
+
+        // sort scores in descending order
+        sorted_scores.sort(function compare(kv1, kv2) {
+            return kv1[1] < kv2[1]
+        })
+
+        console.log("sorted:");
+        console.log(sorted_scores);
+        
+        this.setState({scores: sorted_scores});
     }
 
     changeHandler = e => {

@@ -25,12 +25,12 @@ class Result extends Component {
     componentWillReceiveProps(nextProps) {
         console.log("Result");
         console.log(nextProps);
-        this.setState({ prediction_one_name: Object.keys(nextProps.scores)[0].split("_")[1] });
-        this.setState({ prediction_one_value: Object.values(nextProps.scores)[0] });
-        this.setState({ prediction_two_name: Object.keys(nextProps.scores)[1].split("_")[1] });
-        this.setState({ prediction_two_value: Object.values(nextProps.scores)[1] });
-        this.setState({ prediction_three_name: Object.keys(nextProps.scores)[2].split("_")[1] });
-        this.setState({ prediction_three_value: Object.values(nextProps.scores)[2] });
+        this.setState({ prediction_one_name: Object.values(nextProps.scores)[0][0].split("_")[1] });
+        this.setState({ prediction_one_value: Object.values(nextProps.scores)[0][1] });
+        this.setState({ prediction_two_name: Object.values(nextProps.scores)[1][0].split("_")[1] });
+        this.setState({ prediction_two_value: Object.values(nextProps.scores)[1][1] });
+        this.setState({ prediction_three_name: Object.values(nextProps.scores)[2][0].split("_")[1] });
+        this.setState({ prediction_three_value: Object.values(nextProps.scores)[2][1] });
     }
 
     render() {
