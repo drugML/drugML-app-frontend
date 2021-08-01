@@ -37,13 +37,11 @@ class AdvancedInput extends Component {
         }
     }
 
-    sortObjectByKeys(o) {
-        return Object.values(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
-    }
-
-    // scores returned from API are decimals, format to rounded percentages
+    // Scores returned from API are decimals, format to rounded percentages and decreasing order
     formatScores() {
         var scores_copy = this.state.scores;
+
+        // rounded percentages
         Object.keys(scores_copy).forEach(e => {
             scores_copy[e] = (Number(scores_copy[e]) * 100).toFixed(2).toString() + '%';
         })
@@ -78,7 +76,6 @@ class AdvancedInput extends Component {
                 this.setState({scores: response.data.message, result: true})
                 this.formatScores();
                 console.log(this.state.scores);
-                console.log(this.state.result);
             })
             .catch(error => {
                 console.log(error)

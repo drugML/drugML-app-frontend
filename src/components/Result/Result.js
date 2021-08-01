@@ -13,6 +13,7 @@ class Result extends Component {
         super(props)
 
         this.state = {
+            result_status: false,
             prediction_one_name: 'none',
             prediction_one_value: 'none',
             prediction_two_name: 'none',
@@ -20,11 +21,12 @@ class Result extends Component {
             prediction_three_name: 'none',
             prediction_three_value: 'none',
         };
+
+        // this.result_status = false;
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log("Result");
-        console.log(nextProps);
+        this.setState({ result_status: true });
         this.setState({ prediction_one_name: Object.values(nextProps.scores)[0][0].split("_")[1] });
         this.setState({ prediction_one_value: Object.values(nextProps.scores)[0][1] });
         this.setState({ prediction_two_name: Object.values(nextProps.scores)[1][0].split("_")[1] });
@@ -36,23 +38,29 @@ class Result extends Component {
     render() {
         return (
             <Container className={classes['result-div']}>
-                <Flex className={classes.label}>
-                    <p>Predictions</p>
-                    <Spacer />
-                </Flex>
-                <div className={classes.result}>
-                <img src={result_icon} className={classes.icon} alt="icon"></img>
-                {this.state.prediction_one_name}{" "}{this.state.prediction_one_value}
-                </div>
-                {/* <input type="text" className={classes.result} placeholder={this.state.prediction_hypertension} /> */}
-                <div className={classes.result}>
-                <img src={result_icon} className={classes.icon} alt="icon"></img>
-                {this.state.prediction_two_name}{" "}{this.state.prediction_two_value}
-                </div>
-                <div className={classes.result}>
-                <img src={result_icon} className={classes.icon} alt="icon"></img>
-                {this.state.prediction_three_name}{" "}{this.state.prediction_three_value}
-                </div>
+                
+                {!this.state.result_status ? (
+                    <div></div>
+                     ) : (
+                    <div>
+                        <Flex className={classes.label}>
+                            <p>Predictions</p>
+                            <Spacer />
+                        </Flex>
+                        <div className={classes.result}>
+                            <img src={result_icon} className={classes.icon} alt="icon"></img>
+                            {this.state.prediction_one_name}{" "}{this.state.prediction_one_value}
+                        </div>
+                        <div className={classes.result}>
+                            <img src={result_icon} className={classes.icon} alt="icon"></img>
+                            {this.state.prediction_two_name}{" "}{this.state.prediction_two_value}
+                        </div>
+                        <div className={classes.result}>
+                            <img src={result_icon} className={classes.icon} alt="icon"></img>
+                            {this.state.prediction_three_name}{" "}{this.state.prediction_three_value}
+                        </div>
+                    </div>
+                )}
            </Container>
             
         );
