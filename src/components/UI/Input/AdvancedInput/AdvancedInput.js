@@ -41,21 +41,22 @@ class AdvancedInput extends Component {
     formatScores() {
         var scores_copy = this.state.scores;
 
-        // rounded percentages
-        Object.keys(scores_copy).forEach(e => {
-            scores_copy[e] = (Number(scores_copy[e]) * 100).toFixed(2).toString() + '%';
-        })
-        
         var sorted_scores = []
 
         for (var key in scores_copy) {
-            sorted_scores.push([ key, scores_copy[key] ])
+            sorted_scores.push([key, scores_copy[key]])
         }
 
         // sort scores in descending order
         sorted_scores.sort(function compare(kv1, kv2) {
-            return kv1[1] < kv2[1]
+            return kv2[1] - kv1[1]
         })
+
+        // format scores into percentages
+        for (var key in sorted_scores) {
+            console.log(sorted_scores[key][1]);
+            sorted_scores[key][1] = (Number(sorted_scores[key][1]) * 100).toFixed(2).toString() + '%';
+        }
 
         console.log("sorted:");
         console.log(sorted_scores);
