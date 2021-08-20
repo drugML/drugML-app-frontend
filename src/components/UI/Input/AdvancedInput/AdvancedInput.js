@@ -104,56 +104,56 @@ class AdvancedInput extends Component {
                 label: 'Molecular Weight (g)',
                 name: 'molecular_weight',
                 value: molecular_weight,
-                placeholder: '570',
+                placeholder: '428.5',
                 isFirst: true
             },
             {
                 label: 'Hydrogen Bond Donor Count',
                 name: 'hydrogen_bond_donor_count',
                 value: hydrogen_bond_donor_count,
-                placeholder: '129'
+                placeholder: '1'
             },
             {
                 label: 'Hydrogen Bond Acceptor Count',
                 name: 'hydrogen_bond_acceptor_count',
                 value: hydrogen_bond_acceptor_count,
-                placeholder: '130'
+                placeholder: '5'
             },
             {
                 label: 'Topological Polar Surface Area',
                 name: 'topological_polar_surface_area',
                 value: topological_polar_surface_area,
-                placeholder: '300'
+                placeholder: '87'
             },
             {
                 label: 'Heavy Atom Count',
                 name: 'heavy_atom_count',
                 value: heavy_atom_count,
-                placeholder: '10000'
+                placeholder: '32'
             },
             {
                 label: 'Complexity',
                 name: 'complexity',
                 value: complexity,
-                placeholder: '983'
+                placeholder: '682'
             },
             {
                 label: 'Melting Point (K)',
                 name: 'melting_point',
                 value: melting_point,
-                placeholder: '340.56'
+                placeholder: '453.7'
             },
             {
                 label: 'Solubility (mg/L)',
                 name: 'solubility',
                 value: solubility,
-                placeholder: '120'
+                placeholder: '8.84'
             },
             {
                 label: 'logP',
                 name: 'logp',
                 value: logp,
-                placeholder: '980'
+                placeholder: '4.5'
             }
         ];
 
