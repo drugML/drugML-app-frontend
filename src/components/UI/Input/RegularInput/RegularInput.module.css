@@ -6,7 +6,7 @@
 	background: #eeeeee;
 	border-radius: 20px;
 	width: 100%;
-	height: 100%;
+	/* height: 100%; looks better removed */
 	color: #212121;
 	font-weight: 500;
 	margin-top: 12px;

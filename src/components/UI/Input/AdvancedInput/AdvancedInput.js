@@ -2,6 +2,8 @@ import Input from './Input/Input';
 import Result from '../../../Result/Result';
 
 import { Fragment, Component } from 'react';
+import { Container } from '@chakra-ui/react';
+
 
 import classes from './AdvancedInput.module.css';
 
@@ -13,9 +15,15 @@ class AdvancedInput extends Component {
     constructor(props) {
         super(props)
 
+        this.mediaQuery = {
+            desktop: 1200,
+            phone: 900,
+        };
+
         this.state = {
             result: false,
-            scores: "none"
+            scores: "none",
+            windowWidth: null,
         }
 
         this.params = {
@@ -35,6 +43,12 @@ class AdvancedInput extends Component {
             prediction_hypertenstion: '',
             prediction_pain: '',
         }
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', () => {
+            this.setState({windowWidth: document.body.clientWidth})
+        });
     }
 
     // Scores returned from API are decimals, format to rounded percentages and decreasing order
@@ -144,7 +158,13 @@ class AdvancedInput extends Component {
         ];
 
         return (
-            <Fragment>
+            <div style={{
+                width: this.state.windowWidth > this.mediaQuery.phone
+                ? '50%'
+                : '100%',
+            }}>
+            <Container className={classes['input-div']}>
+                <Fragment>
                 <form onSubmit={this.submitHandler}>
                     {inputs.map((input) => (
                         <Input
@@ -161,6 +181,9 @@ class AdvancedInput extends Component {
                 </form>
                 <Result scores={this.state.scores} />
             </Fragment>
+            </Container>
+             </div> 
+            
         );
     }
 }
