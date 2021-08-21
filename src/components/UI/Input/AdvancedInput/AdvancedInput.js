@@ -177,7 +177,7 @@ class AdvancedInput extends Component {
                             onChange={this.changeHandler}
                         />
                     ))}
-                    <button type="submit">Enter</button>
+                    <button className={classes['button']} type="submit">Enter</button>
                 </form>
                 <Result scores={this.state.scores} />
             </Fragment>

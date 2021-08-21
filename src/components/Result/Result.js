@@ -21,8 +21,6 @@ class Result extends Component {
             prediction_three_name: 'none',
             prediction_three_value: 'none',
         };
-
-        // this.result_status = false;
     }
 
     componentWillReceiveProps(nextProps) {
@@ -42,7 +40,7 @@ class Result extends Component {
                 {!this.state.result_status ? (
                     <div></div>
                      ) : (
-                    <div>
+                    <div className={classes.resultContainer}>
                         <Flex className={classes.label}>
                             <p>Predictions</p>
                             <Spacer />
@@ -62,10 +60,10 @@ class Result extends Component {
                     </div>
                 )}
            </Container>
-            
         );
     }
 }
+     
 
 export default Result;
 

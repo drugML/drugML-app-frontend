@@ -2,7 +2,6 @@
 	background: #eeeeee;
 	border-radius: 20px;
 	width: 100%;
-	/* height: 100%; */
 	color: #212121;
 	font-weight: 500;
 	margin-top: 12px;
@@ -12,10 +11,8 @@
 
 .input:focus {
 	border-radius: 20px;
-	border: 1px solid #c0c0c0;
-	outline: none !important;
-	box-shadow: 0 0 5px #a8a8a8;
-    font-size: 20px;
+	box-shadow: 0 0 1px #a8a8a8;
+    font-size: 150%;
 }
 
 .label {
