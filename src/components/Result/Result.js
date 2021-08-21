@@ -1,6 +1,6 @@
 import {HStack, Container, Flex, Spacer, Stack, Center } from '@chakra-ui/react';
 
-import { Component } from 'react';
+import React, { Component, createRef } from 'react';
 
 import classes from './Result.module.css';
 
@@ -11,6 +11,8 @@ class Result extends Component {
     // For state of API result display
     constructor(props) {
         super(props)
+
+        this.scrollToRef = createRef();
 
         this.state = {
             result_status: false,
@@ -31,6 +33,7 @@ class Result extends Component {
         this.setState({ prediction_two_value: Object.values(nextProps.scores)[1][1] });
         this.setState({ prediction_three_name: Object.values(nextProps.scores)[2][0].split("_")[1] });
         this.setState({ prediction_three_value: Object.values(nextProps.scores)[2][1] });
+        this.scrollToRef.current.scrollIntoView( {behavior: 'smooth' } );
     }
 
     render() {
@@ -38,7 +41,7 @@ class Result extends Component {
             <Container className={classes['result-div']}>
                 
                 {!this.state.result_status ? (
-                    <div></div>
+                    <div ref={this.scrollToRef}></div>
                      ) : (
                     <div className={classes.resultContainer}>
                         <Flex className={classes.label}>
@@ -57,6 +60,7 @@ class Result extends Component {
                             <img src={result_icon} className={classes.icon} alt="icon"></img>
                             {this.state.prediction_three_name}{" "}{this.state.prediction_three_value}
                         </div>
+                        <div ref={this.scrollToRef}></div>
                     </div>
                 )}
            </Container>
