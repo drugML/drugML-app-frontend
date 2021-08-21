@@ -33,15 +33,17 @@ class Result extends Component {
         this.setState({ prediction_two_value: Object.values(nextProps.scores)[1][1] });
         this.setState({ prediction_three_name: Object.values(nextProps.scores)[2][0].split("_")[1] });
         this.setState({ prediction_three_value: Object.values(nextProps.scores)[2][1] });
-        this.scrollToRef.current.scrollIntoView( {behavior: 'smooth' } );
+        if (this.scrollToRef.current != null) {
+            this.scrollToRef.current.scrollIntoView( {behavior: 'smooth' } );
+
+        }
     }
 
     render() {
         return (
             <Container className={classes['result-div']}>
-                
                 {!this.state.result_status ? (
-                    <div ref={this.scrollToRef}></div>
+                    <div></div>
                      ) : (
                     <div className={classes.resultContainer}>
                         <Flex className={classes.label}>
