@@ -14,11 +14,12 @@ const Input = (props) => {
 
 	return (
 		<Container className={classes.input} centerContent maxW="container.sm">
-			{isAdvanced ? (
+			{/* {isAdvanced ? (
 				<AdvancedInput onAdvancedInput={advancedInputHandler} />
 			) : (
 				<RegularInput onAdvancedInput={advancedInputHandler} />
-			)}
+			)} */}
+			<AdvancedInput onAdvancedInput={advancedInputHandler} />
 		</Container>
 	);
 };

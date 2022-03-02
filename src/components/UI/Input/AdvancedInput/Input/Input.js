@@ -8,7 +8,7 @@ const Input = (props) => (
 	<Container className={classes['input-div']}>
 		<Flex className={classes.label}>
 			<h4>{props.label}</h4>
-			{props.isFirst && (
+			{/* {props.isFirst && (
 				<Fragment>
 					<Spacer />
 					<Center className={classes.button} onClick={props.onAdvancedInput}>
@@ -16,7 +16,7 @@ const Input = (props) => (
 						<button>Advanced</button>
 					</Center>
 				</Fragment>
-			)}
+			)} */}
 		</Flex>
 		<input type="text" className={classes.input} name={props.name} value={props.value} placeholder={props.placeholder} onChange={props.onChange} />
 	</Container>
