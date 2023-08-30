@@ -85,7 +85,7 @@ class AdvancedInput extends Component {
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state);
-        axios.post('https://drugmlapi-env.eba-f7kpi2dc.us-east-1.elasticbeanstalk.com/api/drug/', this.params)
+        axios.post('https://drugml-backend.azurewebsites.net/api/drug/', this.params)
             .then(response => {
                 console.log(response)
                 this.setState({scores: response.data.message, result: true})
